@@ -7,7 +7,6 @@ const Transactions=require('./routes/Transactions')
 const bodyparser = require('body-parser');
 require('./conn/db');
 const cors = require('cors');
-require('dotenv').config();
 
 
 // // Middleware
