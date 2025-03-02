@@ -41,14 +41,14 @@ function handleInputChange(e){
              onChange={handleInputChange}
           />
          <div className="search-button" onClick={()=>handleclick()}>
-             <i class="fa-solid fa-magnifying-glass"></i>
+             <i className="fa-solid fa-magnifying-glass"></i>
          </div>
       </div>
 
       {/* Options Section */}
       <div className="navbar-options">
         <Link className="navbar-btn" to='/'>
-        <i class="fa-solid fa-house"></i> Home
+        <i className="fa-solid fa-house"></i> Home
         </Link>
         {!isLoggedIn ? (
         <Link className="navbar-btn" to='/Login'>
@@ -64,7 +64,7 @@ function handleInputChange(e){
            Transactions
         </Link>
         <Link className="navbar-btn" to='/Cartdata'>
-        <i class="fa-solid fa-cart-shopping"></i> Cart
+        <i className="fa-solid fa-cart-shopping"></i> Cart
         </Link>
        </div>
     </div>

@@ -3,6 +3,7 @@ const express=require('express');
 const router=express.Router();
 const Cardproduct=require('../model/CardSchema');
 const jwt=require('jsonwebtoken');
+const { log } = require('console');
 require('dotenv').config();
 
 const JWT_SECRET = process.env.JWT_SECRET; 
@@ -51,5 +52,17 @@ router.get('/',authenticate, async(req,res)=>{
         console.error(e);
     }
 })
+
+router.delete('/:id', authenticate, async (req, res) => {
+  try {
+      const id  = req.params.id;
+      const deletedData = await Cardproduct.findByIdAndDelete(id);
+      res.status(200).json({ message: "Product deleted successfully", deletedData });
+  }
+   catch (error) {
+      res.status(500).json({ message: "Server error", error });
+  }
+});
+
 
 module.exports=router;

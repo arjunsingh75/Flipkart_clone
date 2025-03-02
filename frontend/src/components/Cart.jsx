@@ -46,10 +46,16 @@ const Cart = () => {
     }));
   };
 
-  const handleDelete = async (id) => {
-    axios.delete(`${import.meta.env.VITE_APP_API_URL}/cartdata/${id}`);
+  const handleDelete =async(id) => {
+    const token = localStorage.getItem('authToken');
+    await axios.delete(`${import.meta.env.VITE_APP_API_URL}/cartdata/${id}`,
+   { headers:{
+      "Content-Type": "application/json",
+       Authorization: `${token}`,
+    },}
+  );
    window.location.reload();
-};
+}
 
    const navigate=useNavigate();
    const handleBuyNow = async (totalPrice) => {
@@ -122,7 +128,7 @@ const Cart = () => {
                   <div className="cart-buttons">
                     <button
                       className="cart-delete-button"
-                      onClick={() => handleDelete(item.userid)}
+                      onClick={() => handleDelete(item._id)}
                     >
                       Delete
                     </button>
