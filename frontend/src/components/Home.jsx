@@ -4,6 +4,7 @@ import Carousel from 'better-react-carousel'
 import {useNavigate,useLocation} from "react-router-dom"
 import axios from "axios";
 
+
 const HomePage = () => {
    const [products, setProducts] = useState([]);
    const [filteredProducts, setFilteredProducts] = useState([]);
@@ -29,23 +30,23 @@ const HomePage = () => {
 
    //===================== apply search filter ===================
     
-  const handleSearch = () => {
-    if (searchQuery.trim()) {
-      const filteredResults = products.filter(
-        (product) =>
-          product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          product.category.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredProducts(filteredResults);
-    } else {
-      setFilteredProducts(products);
-    }
-  };
+  // const handleSearch = () => {
+  //   if (searchQuery.trim()) {
+  //     const filteredResults = products.filter(
+  //       (product) =>
+  //         product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //         product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //         product.category.toLowerCase().includes(searchQuery.toLowerCase())
+  //     );
+  //     setFilteredProducts(filteredResults);
+  //   } else {
+  //     setFilteredProducts(products);
+  //   }
+  // };
 
-  useEffect(() => {
-    handleSearch();
-  }, [searchQuery]);
+  // useEffect(() => {
+  //   handleSearch();
+  // }, [searchQuery]);
 
  //=============== view more click handle ======================  
     function handleclick(product){
